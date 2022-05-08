@@ -7,14 +7,9 @@
 
 import Foundation
 
-//struct BeerList: Decodable {
-//    let beerList: [Beer]
-//}
-
 struct Beer: Decodable {
     let id: Int?
     let name, tagline, description, brewersTips, contributedBy, imageURL: String?
-    let firstBrewed: Date
     let abv, ibu, targetFG, targetOG, ebc, srm, ph, attenuationLevel: Double?
     let volume: Volume?
     let boilVolume: BoilVolume?
@@ -22,7 +17,6 @@ struct Beer: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id, name, tagline, description, abv, ibu, ebc, srm, ph, volume
-        case firstBrewed = "first_brewed"
         case imageURL = "image_url"
         case targetFG = "target_fg"
         case targetOG = "target_og"

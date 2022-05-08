@@ -28,6 +28,7 @@ class Service {
             case let .success(result):
                 //Beer 데이터 리스트 그냥 그대로 보임,, 이를 -> 필요한 데이터들만 받아야함
                 //데이터 재가공해야됨,,
+                print("success - Service(fetchBeerList)")
                 guard let modelData = self?.beerToBeerModel(from: result) else { return }
                 self?.beerModel = modelData
                 onCompleted(modelData)

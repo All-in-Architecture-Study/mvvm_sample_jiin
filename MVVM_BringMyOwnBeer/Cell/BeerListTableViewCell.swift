@@ -15,14 +15,14 @@ class BeerListTableViewCell: UITableViewCell {
     @IBOutlet weak var beerName: UILabel!
     @IBOutlet weak var beerDescription: UILabel!
     
-    public var data: Beer? {
+    public var data: Any? {
         didSet {
-            guard let data = data else { return }
-            guard let id = data.id else { return }
+            guard let data = data as? BeerModel else { return }
+            let id = data.id
             beerId.text = "\(String(describing: id))"
             beerName.text = data.name
             beerDescription.text = data.description
-            let imageURL = URL(string: data.imageURL ?? "")
+            let imageURL = URL(string: data.imageURL)
             beerImage.kf.setImage(with: imageURL)
         }
     }
