@@ -18,21 +18,8 @@ class BeerListViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.title = "맥주리스트"
         tableView.dataSource = self
-        getData()
     }
     
-    private func getData() {
-        self.fetchBeerData { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .success(result):
-                self.beerList = result
-                self.tableView.reloadData()
-            case let .failure(error):
-                debugPrint("error: \(error)")
-            }
-        }
-    }
     
 }
 
@@ -49,24 +36,5 @@ extension BeerListViewController: UITableViewDataSource{
 }
 
 extension BeerListViewController {
-    func fetchBeerData(completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
-        AF.request(self.urlLink,
-               method: .get,
-               parameters: nil)
-        .responseData { response in
-            switch response.result {
-            case let .success(data):
-                do {
-                    let decoder = JSONDecoder()
-                    let result = try decoder.decode([Beer].self, from: data)
-                    completionHandler(.success(result))
-                    print("fetchBeerData - success")
-                } catch {
-                    completionHandler(.failure(error))
-                }
-            case let .failure(error):
-                print("ERROR \(error)")
-            }
-        }
-    }
+    
 }
