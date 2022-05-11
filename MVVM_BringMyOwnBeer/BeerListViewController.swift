@@ -28,7 +28,7 @@ class BeerListViewController: UIViewController {
     private func setTableView() {
         viewModel.beerModelData
             .bind(to: tableView.rx.items(cellIdentifier: "BeerListTableViewCell", cellType: BeerListTableViewCell.self)) { index, item, cell in
-                cell.data = item
+                cell.configureData(item)
             }.disposed(by: disposeBag)
         viewModel.reload()
     }
