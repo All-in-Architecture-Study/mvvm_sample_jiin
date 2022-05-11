@@ -22,9 +22,9 @@ class BeerListErrorRepository: BeerListRepositoriable {
     }
 }
 
-class Repository {
-    func fetchBeerData(completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
-        //API 나누는 거 ?!
+class BeerListSuccessRepository: BeerListRepositoriable {
+    func fetch(completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
+        //API 나누는 거 ?
         //https://zeddios.tistory.com/1103
         AF.request("https://api.punkapi.com/v2/beers",
                method: .get,

@@ -14,8 +14,7 @@ import RxSwift
 class BeerViewModel {
     
     let beerModelData = BehaviorRelay(value: [Beer]())
-    let service = BeerListService()
-//    let testData = PublishSubject<BeerModel>()
+    let service = BeerListService(BeerListSuccessRepository() as BeerListRepositoriable)
     
     func reload() {
         service.fetchBeerList { [weak self] result in

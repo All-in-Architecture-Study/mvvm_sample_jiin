@@ -21,7 +21,7 @@ class BeerListTableViewCell: UITableViewCell {
     }
 
     public func configureData(_ cellData: Beer) {
-        let id = cellData.id
+        let id = cellData.id ?? 0
         beerId.text = "\(String(describing: id))"
         beerName.text = cellData.name
         beerDescription.text = cellData.description
