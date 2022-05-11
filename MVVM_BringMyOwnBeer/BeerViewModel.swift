@@ -13,8 +13,8 @@ import RxSwift
 //View에 대한 정보 없이 비즈니스 로직만,,
 class BeerViewModel {
     
-    let beerModelData = BehaviorRelay(value: [BeerModel]())
-    let service = Service()
+    let beerModelData = BehaviorRelay(value: [Beer]())
+    let service = BeerListService()
 //    let testData = PublishSubject<BeerModel>()
     
     func reload() {
