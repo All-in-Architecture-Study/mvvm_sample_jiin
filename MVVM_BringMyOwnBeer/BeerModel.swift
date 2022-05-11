@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//굳이 지워
 struct BeerModel {
     var id: Int
     var name: String

@@ -7,6 +7,7 @@
 
 import Foundation
 import RxRelay
+import RxSwift
 
 //ViewModel은 Model을 소유
 //View에 대한 정보 없이 비즈니스 로직만,,
@@ -14,6 +15,7 @@ class BeerViewModel {
     
     let beerModelData = BehaviorRelay(value: [BeerModel]())
     let service = Service()
+//    let testData = PublishSubject<BeerModel>()
     
     func reload() {
         service.fetchBeerList { [weak self] result in
@@ -21,5 +23,4 @@ class BeerViewModel {
             self.beerModelData.accept(result)
         }
     }
-    
 }

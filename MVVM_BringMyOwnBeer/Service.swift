@@ -8,10 +8,16 @@
 import Foundation
 
 class Service {
-    let repository = Repository()
-    
+    let repository: BeerListRepositoriable
     var beerModel = [BeerModel]() //state
     
+    //DIP 공부를 해서
+    // init 시점에 BeerListRepositoriable type 레파지토리 넣어줌
+    init(_ repository: BeerListRepositoriable) {
+        self.repository = repository
+    }
+    
+    //굳이 필요 없을 것 같음 
     func beerToBeerModel(from: [Beer]) -> [BeerModel] {
         var result = [BeerModel]()
         from.forEach {

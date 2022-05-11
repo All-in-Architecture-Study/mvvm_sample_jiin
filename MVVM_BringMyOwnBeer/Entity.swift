@@ -28,12 +28,12 @@ struct Beer: Decodable {
     }
 }
 
-struct Volume: Codable {
+struct Volume: Decodable {
     let value: Int
     let unit: String
 }
 
-struct BoilVolume: Codable {
+struct BoilVolume: Decodable {
     let value: Int
     let unit: String
 }

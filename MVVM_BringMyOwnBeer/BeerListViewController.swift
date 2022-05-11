@@ -12,12 +12,20 @@ import RxCocoa
 class BeerListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
-    let viewModel = BeerViewModel()
-    let disposeBag = DisposeBag()
+    private let viewModel = BeerViewModel()
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigation()
+        setTableView()
+    }
+    
+    private func setNavigation() {
         self.navigationController?.title = "맥주리스트"
+    }
+    
+    private func setTableView() {
         viewModel.beerModelData
             .bind(to: tableView.rx.items(cellIdentifier: "BeerListTableViewCell", cellType: BeerListTableViewCell.self)) { index, item, cell in
                 cell.data = item
