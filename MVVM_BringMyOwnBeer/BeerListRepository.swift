@@ -8,9 +8,10 @@
 import Foundation
 import Alamofire
 
-enum APIError: Error {
-    case urlError(String)
-    case fetchError
+enum NetworkError: Error {
+    case noData                 // 결과 데이터 미존재
+    case failDecode             // Decode 실패
+    case noURL                 // URL 존재하지 않음
 }
 
 protocol BeerListRepositoriable {
@@ -19,7 +20,7 @@ protocol BeerListRepositoriable {
 
 class BeerListErrorRepository: BeerListRepositoriable {
     func fetch(page: Int?, completionHandler: @escaping (Result<[Beer], Error>) -> ()) {
-        completionHandler(.failure(APIError.fetchError))
+        completionHandler(.failure(NetworkError.noData))
     }
 }
 
@@ -27,8 +28,7 @@ class BeerListSuccessRepository: BeerListRepositoriable {
     func fetch(page: Int?, completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
 
         guard let url = makeGetBeersComponents(page: page).url else {
-            let error = APIError.urlError("유효하지 않은 URL 입니다.")
-            return completionHandler(.failure(error))
+            return completionHandler(.failure(NetworkError.noURL)) //Url이 존재하지 않을 때
         }
         AF.request(url,
                method: .get,
@@ -42,11 +42,10 @@ class BeerListSuccessRepository: BeerListRepositoriable {
                     completionHandler(.success(result))
                     print("fetchBeerData - success")
                 } catch {
-                    completionHandler(.failure(error))
+                    completionHandler(.failure(NetworkError.failDecode))
                 }
-            //에러 타입 케이스로 ,,
             case let .failure(error):
-                print("ERROR \(error)")
+                print("ERROR \(error)") //진짜 실패 
             }
         }
     }
