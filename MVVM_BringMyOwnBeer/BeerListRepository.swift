@@ -9,24 +9,28 @@ import Foundation
 import Alamofire
 
 enum APIError: Error {
-    case testError
+    case urlError(String)
+    case fetchError
 }
 
 protocol BeerListRepositoriable {
-    func fetch(completionHandler: @escaping(Result<[Beer], Error>) -> ())
+    func fetch(page: Int?, completionHandler: @escaping(Result<[Beer], Error>) -> ())
 }
 
 class BeerListErrorRepository: BeerListRepositoriable {
-    func fetch(completionHandler: @escaping (Result<[Beer], Error>) -> ()) {
-        completionHandler(.failure(APIError.testError))
+    func fetch(page: Int?, completionHandler: @escaping (Result<[Beer], Error>) -> ()) {
+        completionHandler(.failure(APIError.fetchError))
     }
 }
 
 class BeerListSuccessRepository: BeerListRepositoriable {
-    func fetch(completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
-        //API 나누는 거 ?
-        //https://zeddios.tistory.com/1103
-        AF.request("https://api.punkapi.com/v2/beers",
+    func fetch(page: Int?, completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
+
+        guard let url = makeGetBeersComponents(page: page).url else {
+            let error = APIError.urlError("유효하지 않은 URL 입니다.")
+            return completionHandler(.failure(error))
+        }
+        AF.request(url,
                method: .get,
                parameters: nil)
         .responseData { response in
@@ -45,5 +49,32 @@ class BeerListSuccessRepository: BeerListRepositoriable {
                 print("ERROR \(error)")
             }
         }
+    }
+}
+
+private extension BeerListSuccessRepository {
+    struct BeerAPI {
+        static let scheme = "https"
+        static let host = "api.punkapi.com"
+        static let path = "/v2/beers"
+    }
+    
+    func makeGetBeersComponents(page: Int?) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = BeerAPI.scheme
+        components.host = BeerAPI.host
+        components.path = BeerAPI.path
+        if let page = page {
+            components.queryItems = [
+                URLQueryItem(name: "page", value: "\(page)"),
+                URLQueryItem(name: "per_page", value: "40")
+            ]
+        } else {
+            components.queryItems = [
+                URLQueryItem(name: "per_page", value: "40")
+            ]
+        }
+        
+        return components
     }
 }

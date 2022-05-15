@@ -17,7 +17,7 @@ class BeerListService {
     
     func fetchBeerList(onCompleted: @escaping ([Beer]) -> Void) {
         //Entity -> Model
-        repository.fetch { [weak self] result in
+        repository.fetch(page: 2) { [weak self] result in
             switch result {
             case let .success(result):
                 self?.beerModel = result
