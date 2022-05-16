@@ -14,22 +14,18 @@ class BeerListTableViewCell: UITableViewCell {
     @IBOutlet weak var beerId: UILabel!
     @IBOutlet weak var beerName: UILabel!
     @IBOutlet weak var beerDescription: UILabel!
-    
-    public var data: Any? {
-        didSet {
-            guard let data = data as? BeerModel else { return }
-            let id = data.id
-            beerId.text = "\(String(describing: id))"
-            beerName.text = data.name
-            beerDescription.text = data.description
-            let imageURL = URL(string: data.imageURL)
-            beerImage.kf.setImage(with: imageURL)
-        }
-    }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
     }
 
+    public func configureData(_ cellData: Beer) {
+        let id = cellData.id ?? 0
+        beerId.text = "\(String(describing: id))"
+        beerName.text = cellData.name
+        beerDescription.text = cellData.description
+        let imageURL = URL(string: cellData.imageURL ?? "")
+        beerImage.kf.setImage(with: imageURL)
+    }
 }

@@ -28,13 +28,19 @@ struct Beer: Decodable {
     }
 }
 
-struct Volume: Codable {
+struct Volume: Decodable {
     let value: Int
     let unit: String
 }
 
-struct BoilVolume: Codable {
+struct BoilVolume: Decodable {
     let value: Int
     let unit: String
+}
+//에러 데이터 파싱을 어떻게 ?
+struct PunkErrorData: Codable {
+    let statusCode: Int
+    let error: String
+    let message: String
 }
 

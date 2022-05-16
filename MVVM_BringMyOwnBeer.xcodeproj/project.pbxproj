@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C091E262832965300F1621B /* baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C091E252832965300F1621B /* baseURL.swift */; };
 		6C36F46C282104BE00DA3F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F46B282104BE00DA3F11 /* AppDelegate.swift */; };
 		6C36F46E282104BE00DA3F11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F46D282104BE00DA3F11 /* SceneDelegate.swift */; };
 		6C36F470282104BE00DA3F11 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F46F282104BE00DA3F11 /* BeerListViewController.swift */; };
@@ -16,9 +17,8 @@
 		6C36F48028210AD800DA3F11 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F47F28210AD700DA3F11 /* Entity.swift */; };
 		6C36F48A2821143B00DA3F11 /* BeerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F4892821143B00DA3F11 /* BeerListTableViewCell.swift */; };
 		6C36F48D28211DDB00DA3F11 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6C36F48C28211DDB00DA3F11 /* Alamofire */; };
-		6C455E9C282803DA003DD461 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C455E9B282803DA003DD461 /* Repository.swift */; };
-		6C455E9E28280410003DD461 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C455E9D2828040F003DD461 /* Service.swift */; };
-		6C455EA028280485003DD461 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C455E9F28280485003DD461 /* BeerModel.swift */; };
+		6C455E9C282803DA003DD461 /* BeerListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C455E9B282803DA003DD461 /* BeerListRepository.swift */; };
+		6C455E9E28280410003DD461 /* BeerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C455E9D2828040F003DD461 /* BeerListService.swift */; };
 		6C455EA628280DCE003DD461 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6C455EA528280DCE003DD461 /* RxCocoa */; };
 		6C455EA828280DCE003DD461 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6C455EA728280DCE003DD461 /* RxRelay */; };
 		6C455EAA28280DCE003DD461 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6C455EA928280DCE003DD461 /* RxSwift */; };
@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C091E252832965300F1621B /* baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseURL.swift; sourceTree = "<group>"; };
 		6C36F468282104BE00DA3F11 /* MVVM_BringMyOwnBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_BringMyOwnBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C36F46B282104BE00DA3F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C36F46D282104BE00DA3F11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +38,8 @@
 		6C36F479282104BE00DA3F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C36F47F28210AD700DA3F11 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		6C36F4892821143B00DA3F11 /* BeerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListTableViewCell.swift; sourceTree = "<group>"; };
-		6C455E9B282803DA003DD461 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = MVVM_BringMyOwnBeer/Repository.swift; sourceTree = SOURCE_ROOT; };
-		6C455E9D2828040F003DD461 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		6C455E9F28280485003DD461 /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
+		6C455E9B282803DA003DD461 /* BeerListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerListRepository.swift; path = MVVM_BringMyOwnBeer/BeerListRepository.swift; sourceTree = SOURCE_ROOT; };
+		6C455E9D2828040F003DD461 /* BeerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListService.swift; sourceTree = "<group>"; };
 		6CCE64502826CF00006F3144 /* BeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerViewModel.swift; path = MVVM_BringMyOwnBeer/BeerViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -63,6 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				6C36F46A282104BE00DA3F11 /* MVVM_BringMyOwnBeer */,
+				6C36F479282104BE00DA3F11 /* Info.plist */,
+				6C36F46B282104BE00DA3F11 /* AppDelegate.swift */,
+				6C36F46D282104BE00DA3F11 /* SceneDelegate.swift */,
+				6C36F471282104BE00DA3F11 /* Main.storyboard */,
+				6C36F474282104BE00DA3F11 /* Assets.xcassets */,
+				6C36F476282104BE00DA3F11 /* LaunchScreen.storyboard */,
 				6C36F469282104BE00DA3F11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,12 +84,11 @@
 		6C36F46A282104BE00DA3F11 /* MVVM_BringMyOwnBeer */ = {
 			isa = PBXGroup;
 			children = (
-				6C455EAD28281B4A003DD461 /* App */,
 				6C36F4882821142800DA3F11 /* Cell */,
 				6C36F47F28210AD700DA3F11 /* Entity.swift */,
-				6C455E9B282803DA003DD461 /* Repository.swift */,
-				6C455E9D2828040F003DD461 /* Service.swift */,
-				6C455E9F28280485003DD461 /* BeerModel.swift */,
+				6C455E9B282803DA003DD461 /* BeerListRepository.swift */,
+				6C091E252832965300F1621B /* baseURL.swift */,
+				6C455E9D2828040F003DD461 /* BeerListService.swift */,
 				6CCE64502826CF00006F3144 /* BeerViewModel.swift */,
 				6C36F46F282104BE00DA3F11 /* BeerListViewController.swift */,
 			);
@@ -96,19 +101,6 @@
 				6C36F4892821143B00DA3F11 /* BeerListTableViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		6C455EAD28281B4A003DD461 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				6C36F46B282104BE00DA3F11 /* AppDelegate.swift */,
-				6C36F46D282104BE00DA3F11 /* SceneDelegate.swift */,
-				6C36F471282104BE00DA3F11 /* Main.storyboard */,
-				6C36F474282104BE00DA3F11 /* Assets.xcassets */,
-				6C36F476282104BE00DA3F11 /* LaunchScreen.storyboard */,
-				6C36F479282104BE00DA3F11 /* Info.plist */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,10 +188,10 @@
 			files = (
 				6CCE64512826CF00006F3144 /* BeerViewModel.swift in Sources */,
 				6C36F470282104BE00DA3F11 /* BeerListViewController.swift in Sources */,
-				6C455EA028280485003DD461 /* BeerModel.swift in Sources */,
-				6C455E9C282803DA003DD461 /* Repository.swift in Sources */,
+				6C455E9C282803DA003DD461 /* BeerListRepository.swift in Sources */,
+				6C091E262832965300F1621B /* baseURL.swift in Sources */,
 				6C36F46C282104BE00DA3F11 /* AppDelegate.swift in Sources */,
-				6C455E9E28280410003DD461 /* Service.swift in Sources */,
+				6C455E9E28280410003DD461 /* BeerListService.swift in Sources */,
 				6C36F46E282104BE00DA3F11 /* SceneDelegate.swift in Sources */,
 				6C36F48028210AD800DA3F11 /* Entity.swift in Sources */,
 				6C36F48A2821143B00DA3F11 /* BeerListTableViewCell.swift in Sources */,
@@ -353,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TLRL588DB6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MVVM_BringMyOwnBeer/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -381,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TLRL588DB6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MVVM_BringMyOwnBeer/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

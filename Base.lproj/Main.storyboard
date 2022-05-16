@@ -16,8 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bya-aO-T9r">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAw-Bu-hLK">
+                                        <rect key="frame" x="0.0" y="129" width="414" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="DSx-QM-SdV"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맥주리스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXg-wx-PP3">
+                                        <rect key="frame" x="20" y="83" width="130" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kAw-Bu-hLK" secondAttribute="bottom" id="5dm-Yb-15V"/>
+                                    <constraint firstItem="kAw-Bu-hLK" firstAttribute="leading" secondItem="bya-aO-T9r" secondAttribute="leading" id="Tju-Nh-yko"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iXg-wx-PP3" secondAttribute="trailing" constant="20" symbolic="YES" id="UAa-5D-BSW"/>
+                                    <constraint firstAttribute="trailing" secondItem="kAw-Bu-hLK" secondAttribute="trailing" id="boH-ma-HlQ"/>
+                                    <constraint firstAttribute="height" constant="130" id="sbD-mm-LVx"/>
+                                    <constraint firstItem="kAw-Bu-hLK" firstAttribute="top" secondItem="iXg-wx-PP3" secondAttribute="bottom" constant="10" id="v3f-wV-r7Z"/>
+                                    <constraint firstItem="iXg-wx-PP3" firstAttribute="leading" secondItem="bya-aO-T9r" secondAttribute="leading" constant="20" id="vwT-g8-oNy"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ja4-vr-Vz5">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="683"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeerListTableViewCell" rowHeight="160" id="M3c-ky-2Gp" customClass="BeerListTableViewCell" customModule="MVVM_BringMyOwnBeer" customModuleProvider="target">
@@ -93,12 +121,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ja4-vr-Vz5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0dL-j8-JJd"/>
+                            <constraint firstItem="Ja4-vr-Vz5" firstAttribute="top" secondItem="bya-aO-T9r" secondAttribute="bottom" id="4oP-zP-6nC"/>
+                            <constraint firstItem="bya-aO-T9r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6ts-R7-Fzb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ja4-vr-Vz5" secondAttribute="bottom" id="Tar-8u-NPy"/>
+                            <constraint firstItem="bya-aO-T9r" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="amb-uD-uiQ"/>
+                            <constraint firstItem="bya-aO-T9r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bYu-08-72Y"/>
                             <constraint firstItem="Ja4-vr-Vz5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o6j-6l-rig"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ja4-vr-Vz5" secondAttribute="trailing" id="rTY-Fy-CqE"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="QVJ-2g-EaA"/>
                     <navigationItem key="navigationItem" title="맥주리스트" id="VVk-FX-HIO"/>
                     <connections>
                         <outlet property="tableView" destination="Ja4-vr-Vz5" id="xxm-tQ-IYr"/>
@@ -106,26 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.1304347826087" y="79.6875"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="mTS-UG-mJy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S3K-se-t9j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xou-fu-BZ9"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JXv-og-xfS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dFQ-zP-mLB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LXS-Ez-8mL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
+            <point key="canvasLocation" x="997" y="-31"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KOk-pI-RQP">
@@ -138,7 +151,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="S3K-se-t9j" kind="relationship" relationship="viewControllers" id="8i0-Dh-sOL"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="c8M-to-lL5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgL-8W-edx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,6 +165,12 @@
         </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
