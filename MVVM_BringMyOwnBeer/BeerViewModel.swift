@@ -16,6 +16,10 @@ class BeerViewModel {
     let beerModelData = BehaviorRelay(value: [Beer]())
     let service = BeerListService(BeerListSuccessRepository() as BeerListRepositoriable)
     
+    init() {
+        reload()
+    }
+    
     func reload() {
         service.fetchBeerList { [weak self] result in
             guard let self = self else { return }

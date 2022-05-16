@@ -30,6 +30,5 @@ class BeerListViewController: UIViewController {
             .bind(to: tableView.rx.items(cellIdentifier: "BeerListTableViewCell", cellType: BeerListTableViewCell.self)) { index, item, cell in
                 cell.configureData(item)
             }.disposed(by: disposeBag)
-        viewModel.reload()
     }
 }

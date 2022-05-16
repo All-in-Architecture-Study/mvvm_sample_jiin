@@ -14,17 +14,11 @@ enum NetworkError: Error {
     case noURL                 // URL 존재하지 않음
 }
 
-protocol BeerListRepositoriable {
+protocol BeerRepositoriable {
     func fetch(page: Int?, completionHandler: @escaping(Result<[Beer], Error>) -> ())
 }
 
-class BeerListErrorRepository: BeerListRepositoriable {
-    func fetch(page: Int?, completionHandler: @escaping (Result<[Beer], Error>) -> ()) {
-        completionHandler(.failure(NetworkError.noData))
-    }
-}
-
-class BeerListSuccessRepository: BeerListRepositoriable {
+class BeerListRepository: BeerRepositoriable {
     func fetch(page: Int?, completionHandler: @escaping(Result<[Beer], Error>) -> ()) {
 
         guard let url = makeGetBeersComponents(page: page).url else {
@@ -51,7 +45,7 @@ class BeerListSuccessRepository: BeerListRepositoriable {
     }
 }
 
-private extension BeerListSuccessRepository {
+private extension BeerListRepository {
     struct BeerAPI {
         static let scheme = "https"
         static let host = "api.punkapi.com"

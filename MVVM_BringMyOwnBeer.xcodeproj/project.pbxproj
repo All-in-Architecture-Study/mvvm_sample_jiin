@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C091E262832965300F1621B /* baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C091E252832965300F1621B /* baseURL.swift */; };
 		6C36F46C282104BE00DA3F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F46B282104BE00DA3F11 /* AppDelegate.swift */; };
 		6C36F46E282104BE00DA3F11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F46D282104BE00DA3F11 /* SceneDelegate.swift */; };
 		6C36F470282104BE00DA3F11 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F46F282104BE00DA3F11 /* BeerListViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C091E252832965300F1621B /* baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseURL.swift; sourceTree = "<group>"; };
 		6C36F468282104BE00DA3F11 /* MVVM_BringMyOwnBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_BringMyOwnBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C36F46B282104BE00DA3F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C36F46D282104BE00DA3F11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				6C36F4882821142800DA3F11 /* Cell */,
 				6C36F47F28210AD700DA3F11 /* Entity.swift */,
 				6C455E9B282803DA003DD461 /* BeerListRepository.swift */,
+				6C091E252832965300F1621B /* baseURL.swift */,
 				6C455E9D2828040F003DD461 /* BeerListService.swift */,
 				6CCE64502826CF00006F3144 /* BeerViewModel.swift */,
 				6C36F46F282104BE00DA3F11 /* BeerListViewController.swift */,
@@ -186,6 +189,7 @@
 				6CCE64512826CF00006F3144 /* BeerViewModel.swift in Sources */,
 				6C36F470282104BE00DA3F11 /* BeerListViewController.swift in Sources */,
 				6C455E9C282803DA003DD461 /* BeerListRepository.swift in Sources */,
+				6C091E262832965300F1621B /* baseURL.swift in Sources */,
 				6C36F46C282104BE00DA3F11 /* AppDelegate.swift in Sources */,
 				6C455E9E28280410003DD461 /* BeerListService.swift in Sources */,
 				6C36F46E282104BE00DA3F11 /* SceneDelegate.swift in Sources */,
